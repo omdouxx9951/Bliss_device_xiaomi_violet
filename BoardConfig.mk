@@ -40,6 +40,48 @@ BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 # Assert
 TARGET_OTA_ASSERT_DEVICE := violet
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := sm6150
+TARGET_NO_BOOTLOADER := true
+
+# Android Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
+BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+
+# Kernel
+BOARD_BOOT_HEADER_VERSION := 1
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 service_locator.enable=1 swiotlb=1 earlycon=msm_geni_serial,0x880000 loop.max_part=16
+BOARD_KERNEL_CMDLINE +=  androidboot.vbmeta.avb_version=1.0
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    DTC_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+KERNEL_LD := LD=ld.lld
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_HEADERS := kernel/xiaomi/violet
+TARGET_KERNEL_SOURCE := kernel/xiaomi/violet
+TARGET_KERNEL_CLANG_COMPILE := true
+BOARD_RAMDISK_OFFSET := 0x01000000
+
+# Platform
+TARGET_BOARD_PLATFORM := sm6150
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno612
+
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
+# Animation for offline charging
+TARGET_PIXEL_CHARGE_ANIM := true
+
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
