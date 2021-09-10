@@ -24,7 +24,7 @@ $(call inherit-product, vendor/ANXCamera/config.mk)
 
 # Inherit some common BLISS stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/bliss/configs/common.mk)
+$(call inherit-product, vendor/bliss/config/common.mk)
 
 PRODUCT_NAME := bliss_violet
 PRODUCT_DEVICE := violet
