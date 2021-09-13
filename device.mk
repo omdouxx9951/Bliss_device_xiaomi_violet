@@ -291,8 +291,7 @@ PRODUCT_ENFORCE_RRO_TARGETS += *
 
 # Power
 PRODUCT_PACKAGES += \
-
-    android.hardware.power-service.xiaomi-libperfmgr
+    android.hardware.power-service.xiaomi-libperfmgr \
     init.insmod.sh \
     init.class_main.sh \
     init.msm.usb.configfs.rc \
