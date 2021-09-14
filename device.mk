@@ -287,23 +287,7 @@ PRODUCT_ENFORCE_RRO_TARGETS += *
 
 # Power
 PRODUCT_PACKAGES += \
-
-    android.hardware.power-service.xiaomi-libperfmgr \
-    init.insmod.sh \
-    init.class_main.sh \
-    init.msm.usb.configfs.rc \
-    init.qcom.early_boot.sh \
-    init.power.rc \
-    init.qcom.rc \
-    init.recovery.qcom.rc \
-    init.qcom.sensors.sh \
-    init.qti.chg_policy.sh \
-    init.qcom.sh \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh \
-    init.target.rc \
-    ueventd.qcom.rc \
-    fstab.qcom
+    android.hardware.power-service.xiaomi-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -327,6 +311,9 @@ PRODUCT_PACKAGES += \
     libril \
     librilutils \
     librmnetctl
+
+# Ramdisk
+PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \

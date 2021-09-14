@@ -87,7 +87,7 @@ on property:sys.boot_completed=1
     write /sys/module/vmpressure/parameters/allocstall_threshold 0
     write /proc/sys/vm/swappiness 100
 
-#Load WLAN driver
+    #Load WLAN driver
     insmod /vendor/lib/modules/wlan.ko
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 

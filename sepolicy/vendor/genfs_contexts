@@ -46,3 +46,4 @@ genfscon sysfs /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crt
 
 # Power Hal - Sched
 genfscon debugfs /sched_features u:object_r:debugfs_sched_features:s0
+

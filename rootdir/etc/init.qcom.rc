@@ -161,7 +161,8 @@ on early-boot
     write /sys/kernel/boot_cdsp/boot 1
     write /sys/devices/virtual/npu/msm_npu/boot 1
     write /sys/kernel/boot_slpi/boot 1
-    write /sys/devices/virtual/cvp/cvp/boot 1
+    write /sys/devices/virtual/cvp/cvp/boot 1    
+
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qti.can.sh
 
@@ -250,9 +251,9 @@ on boot
     mkdir /data/vendor/sensors
     chown system system /data/vendor/sensors
 
-# msm specific files that need to be created on /data
-on post-fs-data
-    mkdir /data/vendor/misc 01771 system system
+    # msm specific files that need to be created on /data
+    on post-fs-data
+        mkdir /data/vendor/misc 01771 system system
 
     # Enable qcrild and data services
     enable vendor.qcrild
